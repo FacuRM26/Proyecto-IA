@@ -128,7 +128,7 @@ def sec_predict(symptoms_exp):
 
         return rf_clf.predict([input_vector])
     except:
-        emit('respuesta', "Se produjo un error, al analizar su enfermedad, vuelva a intentarlo")
+        socketio.emit('respuesta', "Se produjo un error, al analizar su enfermedad, vuelva a intentarlo")
     
 def calc_condition(exp,days):
     sum=0
@@ -137,11 +137,11 @@ def calc_condition(exp,days):
         for item in exp:
             sum=sum+severityDictionary[item]
         if((sum*days)/(len(exp)+1)>13):
-            emit('respuesta', "Deberías consultar a un médico. ")
+            socketio.emit('respuesta', "Deberías consultar a un médico. ")
         else:
-            emit('respuesta', "Puede que no sea tan grave, pero deberías tomar precauciones. ")
+            socketio.emit('respuesta', "Puede que no sea tan grave, pero deberías tomar precauciones. ")
     except:
-        emit('respuesta', "No se detectaron síntomas en lo que escribiste, por favor vuelve a intentarlo")
+        socketio.emit('respuesta', "No se detectaron síntomas en lo que escribiste, por favor vuelve a intentarlo")
 test()
 getSeverityDict()
 getDescription()
@@ -242,7 +242,7 @@ def calcular():
 # Crea una instancia de la aplicación Flask
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*",secure=True)
 app.template_folder = './'
 CORS(app)
 cont = 0 #variable global para el indice de que parte de la conversacion va
@@ -330,11 +330,11 @@ def obtener_mensaje(mensaje):
                 socketio.emit('respuesta', "Toma las siguientes consideraciones : ")
                 for i, j in enumerate(precution_list):
                     socketio.emit('respuesta', f"({i + 1}) {j}")
-                emit('respuesta', "Si tiene otra consulta escriba sus sintomas de nuevo")
+                socketio.emit('respuesta', "Si tiene otra consulta escriba sus sintomas de nuevo")
                 cont = 0
                 cont2=0
             except:
-                emit('respuesta', "Se produjo un error, al analizar su enfermedad, vuelva a intentarlo")
+                socketio.emit('respuesta', "Se produjo un error, al analizar su enfermedad, vuelva a intentarlo")
                 cont = 0
                 cont2=0
                 return
