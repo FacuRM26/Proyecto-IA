@@ -1,0 +1,52 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.main-title {
+    color: #007BFF;
+    font-size: 36px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Estilos para el título del chatbot */
+.mensaje-chatbot {
+    background-color: #b3e0ff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    max-width: 70%;
+}
+
+#chat-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#mensaje-usuario {
+    width: 70%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Estilos adicionales para los mensajes del usuario */
+.mensaje-usuario {
+    text-align: right; /* Alinea el texto a la derecha */
+    background-color: #eaffb3; /* Cambia el color de fondo para diferenciarlo del chatbot */
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    max-width: 70%;
+}
+
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+}
