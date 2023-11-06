@@ -243,6 +243,7 @@ def calcular():
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'
 socketio = SocketIO(app, cors_allowed_origins="*")
+app.template_folder = './'
 CORS(app)
 cont = 0 #variable global para el indice de que parte de la conversacion va
 cont2 = 0 #variable global para contar los sintomas posibles
