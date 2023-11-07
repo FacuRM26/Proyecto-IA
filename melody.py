@@ -338,6 +338,13 @@ def obtener_mensaje(mensaje):
                 cont = 0
                 cont2=0
                 return
+@socketio.on_error()  # Manejar errores generales
+def handle_error(e):
+    print(f"Error en Socket.IO: {str(e)}")
+
+@socketio.on_error('/mensaje')  # Manejar errores en el evento 'mensaje'
+def handle_message_error(e):
+    print(f"Error en el evento 'mensaje': {str(e)}")
 
 
 

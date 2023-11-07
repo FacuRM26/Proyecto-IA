@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    var socket = io.connect('https://' + document.domain + ':' + location.port);
 
     socket.on('respuesta', function(respuesta) {
         mostrarMensajeChatbot(respuesta);
@@ -39,4 +39,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Mensaje de bienvenida inicial
     mostrarMensajeChatbot("Hola, soy Melody. ¿Dime que sintomas tienes?");
+    
 });
