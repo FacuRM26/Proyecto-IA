@@ -347,10 +347,5 @@ def handle_message_error(e):
     print(f"Error en el evento 'mensaje': {str(e)}")
 
 
-
-
-        
-
-
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    socketio.run(app, host='0.0.0.0', port=8080, debug=True)
